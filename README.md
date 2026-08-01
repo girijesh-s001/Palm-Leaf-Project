@@ -389,5 +389,12 @@ python app.py
 ```
 
 ---
+OUTPUT VISUALIZATION
+--------------------
+
+<img width="1147" height="619" alt="image" src="https://github.com/user-attachments/assets/56ea35f0-fc66-4968-b97f-45bc4c5156df" />
+<img width="1132" height="324" alt="image" src="https://github.com/user-attachments/assets/f8eb0abd-f650-47a0-af5d-cd9446d1724f" />
+<img width="1150" height="849" alt="image" src="https://github.com/user-attachments/assets/29d2fd8d-0f2a-420e-8a7d-1918963a56e5" />
+
 
 *Built for digitizing and preserving ancient Tamil palm leaf manuscripts using computer vision and deep learning.*
