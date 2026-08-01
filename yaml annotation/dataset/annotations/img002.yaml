@@ -1,0 +1,3798 @@
+image_label:
+  image_id: "image004"
+  width: 3058
+  height: 356
+  dpi: 300
+annotations:
+  -
+    glyph_id: "g_தி_20_10_41"
+    image_id: "image004"
+    bbox:
+      - 113
+      - 46
+      - 56
+      - 41
+    mask: null
+    labels:
+      - "தி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ரு_20_10_54"
+    image_id: "image004"
+    bbox:
+      - 170
+      - 57
+      - 33
+      - 32
+    mask: null
+    labels:
+      - "ரு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_வ_20_11_06"
+    image_id: "image004"
+    bbox:
+      - 211
+      - 62
+      - 41
+      - 20
+    mask: null
+    labels:
+      - "வ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ள்_20_11_17"
+    image_id: "image004"
+    bbox:
+      - 258
+      - 55
+      - 43
+      - 31
+    mask: null
+    labels:
+      - "ள்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ளு_20_11_47"
+    image_id: "image004"
+    bbox:
+      - 306
+      - 57
+      - 49
+      - 44
+    mask: null
+    labels:
+      - "ளு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_வ_20_11_56"
+    image_id: "image004"
+    bbox:
+      - 366
+      - 57
+      - 42
+      - 24
+    mask: null
+    labels:
+      - "வ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ந_20_12_15"
+    image_id: "image004"
+    bbox:
+      - 128
+      - 99
+      - 32
+      - 25
+    mask: null
+    labels:
+      - "ந"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_12_26"
+    image_id: "image004"
+    bbox:
+      - 167
+      - 99
+      - 25
+      - 24
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ய_20_12_34"
+    image_id: "image004"
+    bbox:
+      - 202
+      - 102
+      - 43
+      - 14
+    mask: null
+    labels:
+      - "ய"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_னா_20_12_45"
+    image_id: "image004"
+    bbox:
+      - 256
+      - 99
+      - 44
+      - 38
+    mask: null
+    labels:
+      - "னா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ர்_20_12_56"
+    image_id: "image004"
+    bbox:
+      - 375
+      - 99
+      - 31
+      - 26
+    mask: null
+    labels:
+      - "ர்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_கு_20_14_03"
+    image_id: "image004"
+    bbox:
+      - 119
+      - 137
+      - 45
+      - 32
+    mask: null
+    labels:
+      - "கு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ற_20_14_16"
+    image_id: "image004"
+    bbox:
+      - 167
+      - 142
+      - 33
+      - 24
+    mask: null
+    labels:
+      - "ற"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ள்_20_14_30"
+    image_id: "image004"
+    bbox:
+      - 361
+      - 132
+      - 48
+      - 28
+    mask: null
+    labels:
+      - "ள்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_மு_20_14_52"
+    image_id: "image004"
+    bbox:
+      - 133
+      - 180
+      - 65
+      - 39
+    mask: null
+    labels:
+      - "மு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_த_20_15_21"
+    image_id: "image004"
+    bbox:
+      - 147
+      - 197
+      - 0
+      - 0
+    mask: null
+    labels:
+      - "த"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ல்_20_15_26"
+    image_id: "image004"
+    bbox:
+      - 177
+      - 199
+      - 0
+      - 0
+    mask: null
+    labels:
+      - "ல்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_அ_20_15_38"
+    image_id: "image004"
+    bbox:
+      - 221
+      - 184
+      - 56
+      - 36
+    mask: null
+    labels:
+      - "அ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_தி_20_15_46"
+    image_id: "image004"
+    bbox:
+      - 284
+      - 175
+      - 38
+      - 42
+    mask: null
+    labels:
+      - "தி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_க_20_15_55"
+    image_id: "image004"
+    bbox:
+      - 325
+      - 181
+      - 29
+      - 28
+    mask: null
+    labels:
+      - "க"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_16_05"
+    image_id: "image004"
+    bbox:
+      - 363
+      - 185
+      - 25
+      - 18
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ர_20_16_12"
+    image_id: "image004"
+    bbox:
+      - 393
+      - 185
+      - 27
+      - 22
+    mask: null
+    labels:
+      - "ர"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ம்_20_16_34"
+    image_id: "image004"
+    bbox:
+      - 429
+      - 179
+      - 44
+      - 30
+    mask: null
+    labels:
+      - "ம்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_அ_20_16_47"
+    image_id: "image004"
+    bbox:
+      - 122
+      - 228
+      - 56
+      - 28
+    mask: null
+    labels:
+      - "அ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ற_20_16_52"
+    image_id: "image004"
+    bbox:
+      - 182
+      - 230
+      - 33
+      - 20
+    mask: null
+    labels:
+      - "ற"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_த்_20_17_10"
+    image_id: "image004"
+    bbox:
+      - 219
+      - 220
+      - 31
+      - 42
+    mask: null
+    labels:
+      - "த்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_து_20_17_22"
+    image_id: "image004"
+    bbox:
+      - 253
+      - 223
+      - 51
+      - 31
+    mask: null
+    labels:
+      - "து"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ப்_20_17_39"
+    image_id: "image004"
+    bbox:
+      - 309
+      - 222
+      - 48
+      - 28
+    mask: null
+    labels:
+      - "ப்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ப_20_17_50"
+    image_id: "image004"
+    bbox:
+      - 368
+      - 229
+      - 33
+      - 17
+    mask: null
+    labels:
+      - "ப"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_17_58"
+    image_id: "image004"
+    bbox:
+      - 409
+      - 227
+      - 19
+      - 19
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ல்_20_18_06"
+    image_id: "image004"
+    bbox:
+      - 435
+      - 217
+      - 29
+      - 32
+    mask: null
+    labels:
+      - "ல்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ப_20_18_22"
+    image_id: "image004"
+    bbox:
+      - 141
+      - 264
+      - 42
+      - 19
+    mask: null
+    labels:
+      - "ப"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_18_30"
+    image_id: "image004"
+    bbox:
+      - 190
+      - 262
+      - 18
+      - 24
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_யி_20_18_45"
+    image_id: "image004"
+    bbox:
+      - 215
+      - 262
+      - 54
+      - 26
+    mask: null
+    labels:
+      - "யி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ர_20_19_49"
+    image_id: "image004"
+    bbox:
+      - 280
+      - 259
+      - 27
+      - 26
+    mask: null
+    labels:
+      - "ர"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ம்_20_20_20"
+    image_id: "image004"
+    bbox:
+      - 423
+      - 252
+      - 36
+      - 26
+    mask: null
+    labels:
+      - "ம்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_க_20_20_37"
+    image_id: "image004"
+    bbox:
+      - 147
+      - 293
+      - 25
+      - 24
+    mask: null
+    labels:
+      - "க"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ட_20_20_46"
+    image_id: "image004"
+    bbox:
+      - 171
+      - 294
+      - 36
+      - 22
+    mask: null
+    labels:
+      - "ட"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_வு_20_21_13"
+    image_id: "image004"
+    bbox:
+      - 223
+      - 295
+      - 32
+      - 29
+    mask: null
+    labels:
+      - "வு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ள்_20_21_26"
+    image_id: "image004"
+    bbox:
+      - 260
+      - 286
+      - 41
+      - 38
+    mask: null
+    labels:
+      - "ள்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_வ_20_22_13"
+    image_id: "image004"
+    bbox:
+      - 307
+      - 293
+      - 37
+      - 23
+    mask: null
+    labels:
+      - "வ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_22_20"
+    image_id: "image004"
+    bbox:
+      - 349
+      - 290
+      - 22
+      - 26
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ழ்_20_22_33"
+    image_id: "image004"
+    bbox:
+      - 374
+      - 282
+      - 29
+      - 39
+    mask: null
+    labels:
+      - "ழ்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_த்_20_22_42"
+    image_id: "image004"
+    bbox:
+      - 411
+      - 281
+      - 20
+      - 42
+    mask: null
+    labels:
+      - "த்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_து_20_22_50"
+    image_id: "image004"
+    bbox:
+      - 432
+      - 284
+      - 56
+      - 30
+    mask: null
+    labels:
+      - "து"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_அ_20_23_37"
+    image_id: "image004"
+    bbox:
+      - 567
+      - 56
+      - 73
+      - 45
+    mask: null
+    labels:
+      - "அ"
+    variant:
+      elongated: true
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_க_20_23_51"
+    image_id: "image004"
+    bbox:
+      - 643
+      - 56
+      - 31
+      - 31
+    mask: null
+    labels:
+      - "க"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ர_20_24_03"
+    image_id: "image004"
+    bbox:
+      - 676
+      - 47
+      - 48
+      - 47
+    mask: null
+    labels:
+      - "ர"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "above line"
+    confidence: 1
+  -
+    glyph_id: "g_மு_20_24_23"
+    image_id: "image004"
+    bbox:
+      - 718
+      - 50
+      - 56
+      - 43
+    mask: null
+    labels:
+      - "மு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_த_20_24_34"
+    image_id: "image004"
+    bbox:
+      - 779
+      - 57
+      - 27
+      - 41
+    mask: null
+    labels:
+      - "த"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ல_20_24_43"
+    image_id: "image004"
+    bbox:
+      - 813
+      - 59
+      - 45
+      - 29
+    mask: null
+    labels:
+      - "ல"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ெ_20_25_06"
+    image_id: "image004"
+    bbox:
+      - 861
+      - 55
+      - 37
+      - 30
+    mask: null
+    labels:
+      - "ெ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_வ_20_25_19"
+    image_id: "image004"
+    bbox:
+      - 903
+      - 59
+      - 39
+      - 24
+    mask: null
+    labels:
+      - "வ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ழு_20_25_27"
+    image_id: "image004"
+    bbox:
+      - 956
+      - 58
+      - 44
+      - 35
+    mask: null
+    labels:
+      - "ழு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_த்_20_25_39"
+    image_id: "image004"
+    bbox:
+      - 1003
+      - 52
+      - 30
+      - 42
+    mask: null
+    labels:
+      - "த்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ெ_20_25_44"
+    image_id: "image004"
+    bbox:
+      - 1045
+      - 50
+      - 44
+      - 36
+    mask: null
+    labels:
+      - "ெ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_த_20_26_03"
+    image_id: "image004"
+    bbox:
+      - 1095
+      - 56
+      - 25
+      - 38
+    mask: null
+    labels:
+      - "த"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ல்_20_26_14"
+    image_id: "image004"
+    bbox:
+      - 1130
+      - 47
+      - 37
+      - 36
+    mask: null
+    labels:
+      - "ல்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ல_20_26_39"
+    image_id: "image004"
+    bbox:
+      - 1179
+      - 56
+      - 37
+      - 29
+    mask: null
+    labels:
+      - "ல"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_26_48"
+    image_id: "image004"
+    bbox:
+      - 1228
+      - 58
+      - 29
+      - 28
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ம_20_27_05"
+    image_id: "image004"
+    bbox:
+      - 1263
+      - 62
+      - 37
+      - 22
+    mask: null
+    labels:
+      - "ம"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_27_23"
+    image_id: "image004"
+    bbox:
+      - 1312
+      - 62
+      - 24
+      - 26
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_தி_20_27_42"
+    image_id: "image004"
+    bbox:
+      - 1346
+      - 49
+      - 41
+      - 48
+    mask: null
+    labels:
+      - "தி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ப_20_27_52"
+    image_id: "image004"
+    bbox:
+      - 1420
+      - 61
+      - 50
+      - 24
+    mask: null
+    labels:
+      - "ப"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_unlabeled_20_27_59"
+    image_id: "image004"
+    bbox:
+      - 1400
+      - 69
+      - 14
+      - 12
+    mask: null
+    labels:
+[]
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_க_20_28_06"
+    image_id: "image004"
+    bbox:
+      - 1476
+      - 59
+      - 27
+      - 28
+    mask: null
+    labels:
+      - "க"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_வ_20_28_25"
+    image_id: "image004"
+    bbox:
+      - 1515
+      - 59
+      - 43
+      - 26
+    mask: null
+    labels:
+      - "வ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ன்_20_28_37"
+    image_id: "image004"
+    bbox:
+      - 1557
+      - 57
+      - 51
+      - 31
+    mask: null
+    labels:
+      - "ன்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_மு_20_28_46"
+    image_id: "image004"
+    bbox:
+      - 1618
+      - 56
+      - 61
+      - 36
+    mask: null
+    labels:
+      - "மு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_த_20_29_06"
+    image_id: "image004"
+    bbox:
+      - 1673
+      - 62
+      - 31
+      - 37
+    mask: null
+    labels:
+      - "த"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ற்_20_29_30"
+    image_id: "image004"
+    bbox:
+      - 1711
+      - 57
+      - 37
+      - 38
+    mask: null
+    labels:
+      - "ற்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ே_20_30_08"
+    image_id: "image004"
+    bbox:
+      - 1763
+      - 56
+      - 41
+      - 37
+    mask: null
+    labels:
+      - "ே"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ற_20_30_17"
+    image_id: "image004"
+    bbox:
+      - 1811
+      - 65
+      - 32
+      - 38
+    mask: null
+    labels:
+      - "ற"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_யு_20_30_23"
+    image_id: "image004"
+    bbox:
+      - 1854
+      - 65
+      - 43
+      - 32
+    mask: null
+    labels:
+      - "யு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ல_20_30_30"
+    image_id: "image004"
+    bbox:
+      - 1955
+      - 61
+      - 47
+      - 30
+    mask: null
+    labels:
+      - "ல"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_unlabeled_20_30_39"
+    image_id: "image004"
+    bbox:
+      - 1903
+      - 58
+      - 42
+      - 41
+    mask: null
+    labels:
+[]
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "after"
+    confidence: 1
+  -
+    glyph_id: "g_கு_20_31_12"
+    image_id: "image004"
+    bbox:
+      - 2022
+      - 62
+      - 48
+      - 36
+    mask: null
+    labels:
+      - "கு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_unlabeled_20_31_28"
+    image_id: "image004"
+    bbox:
+      - 2091
+      - 71
+      - 287
+      - 18
+    mask: null
+    labels:
+[]
+    variant:
+      elongated: true
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_௧_20_31_40"
+    image_id: "image004"
+    bbox:
+      - 2565
+      - 61
+      - 37
+      - 31
+    mask: null
+    labels:
+      - "௧"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_க_20_32_14"
+    image_id: "image004"
+    bbox:
+      - 595
+      - 108
+      - 35
+      - 30
+    mask: null
+    labels:
+      - "க"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ற்_20_32_31"
+    image_id: "image004"
+    bbox:
+      - 643
+      - 104
+      - 35
+      - 34
+    mask: null
+    labels:
+      - "ற்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ற_20_32_37"
+    image_id: "image004"
+    bbox:
+      - 692
+      - 111
+      - 32
+      - 29
+    mask: null
+    labels:
+      - "ற"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_த_20_32_44"
+    image_id: "image004"
+    bbox:
+      - 740
+      - 107
+      - 30
+      - 37
+    mask: null
+    labels:
+      - "த"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_னா_20_32_50"
+    image_id: "image004"
+    bbox:
+      - 772
+      - 104
+      - 43
+      - 47
+    mask: null
+    labels:
+      - "னா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ல_20_32_59"
+    image_id: "image004"
+    bbox:
+      - 958
+      - 113
+      - 39
+      - 23
+    mask: null
+    labels:
+      - "ல"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_33_08"
+    image_id: "image004"
+    bbox:
+      - 1007
+      - 111
+      - 23
+      - 28
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ய_20_33_15"
+    image_id: "image004"
+    bbox:
+      - 1039
+      - 113
+      - 41
+      - 22
+    mask: null
+    labels:
+      - "ய"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ப_20_33_25"
+    image_id: "image004"
+    bbox:
+      - 1092
+      - 112
+      - 45
+      - 20
+    mask: null
+    labels:
+      - "ப"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ய_20_33_50"
+    image_id: "image004"
+    bbox:
+      - 1145
+      - 111
+      - 41
+      - 22
+    mask: null
+    labels:
+      - "ய"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ெ_20_33_59"
+    image_id: "image004"
+    bbox:
+      - 1202
+      - 104
+      - 48
+      - 31
+    mask: null
+    labels:
+      - "ெ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ன்_20_34_23"
+    image_id: "image004"
+    bbox:
+      - 1250
+      - 110
+      - 43
+      - 30
+    mask: null
+    labels:
+      - "ன்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ன்_20_34_40"
+    image_id: "image004"
+    bbox:
+      - 1299
+      - 102
+      - 50
+      - 36
+    mask: null
+    labels:
+      - "ன்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ெ_20_34_49"
+    image_id: "image004"
+    bbox:
+      - 1355
+      - 105
+      - 42
+      - 31
+    mask: null
+    labels:
+      - "ெ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_க_20_35_00"
+    image_id: "image004"
+    bbox:
+      - 1399
+      - 106
+      - 24
+      - 31
+    mask: null
+    labels:
+      - "க"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_35_06"
+    image_id: "image004"
+    bbox:
+      - 1430
+      - 113
+      - 22
+      - 25
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ல்_20_35_39"
+    image_id: "image004"
+    bbox:
+      - 1459
+      - 102
+      - 37
+      - 31
+    mask: null
+    labels:
+      - "ல்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_வ_20_35_45"
+    image_id: "image004"
+    bbox:
+      - 1509
+      - 113
+      - 45
+      - 19
+    mask: null
+    labels:
+      - "வ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_35_57"
+    image_id: "image004"
+    bbox:
+      - 1564
+      - 113
+      - 24
+      - 24
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ல_20_36_04"
+    image_id: "image004"
+    bbox:
+      - 1593
+      - 113
+      - 38
+      - 26
+    mask: null
+    labels:
+      - "ல"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_றி_20_36_10"
+    image_id: "image004"
+    bbox:
+      - 1643
+      - 108
+      - 47
+      - 34
+    mask: null
+    labels:
+      - "றி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_வ_20_36_22"
+    image_id: "image004"
+    bbox:
+      - 1688
+      - 111
+      - 46
+      - 33
+    mask: null
+    labels:
+      - "வ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ன_20_36_40"
+    image_id: "image004"
+    bbox:
+      - 1757
+      - 116
+      - 54
+      - 28
+    mask: null
+    labels:
+      - "ன"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ற்_20_36_55"
+    image_id: "image004"
+    bbox:
+      - 1817
+      - 101
+      - 41
+      - 41
+    mask: null
+    labels:
+      - "ற்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_றா_20_37_03"
+    image_id: "image004"
+    bbox:
+      - 1865
+      - 110
+      - 45
+      - 44
+    mask: null
+    labels:
+      - "றா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ெ_20_37_13"
+    image_id: "image004"
+    bbox:
+      - 1919
+      - 112
+      - 41
+      - 30
+    mask: null
+    labels:
+      - "ெ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ட_20_37_20"
+    image_id: "image004"
+    bbox:
+      - 1962
+      - 118
+      - 42
+      - 20
+    mask: null
+    labels:
+      - "ட"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_37_49"
+    image_id: "image004"
+    bbox:
+      - 2008
+      - 120
+      - 22
+      - 22
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ழ_20_37_55"
+    image_id: "image004"
+    bbox:
+      - 2032
+      - 123
+      - 35
+      - 37
+    mask: null
+    labels:
+      - "ழ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_38_19"
+    image_id: "image004"
+    bbox:
+      - 2073
+      - 118
+      - 24
+      - 36
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_அ_20_38_29"
+    image_id: "image004"
+    bbox:
+      - 2221
+      - 118
+      - 61
+      - 36
+    mask: null
+    labels:
+      - "அ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ெ_20_38_47"
+    image_id: "image004"
+    bbox:
+      - 2292
+      - 113
+      - 47
+      - 25
+    mask: null
+    labels:
+      - "ெ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_38_52"
+    image_id: "image004"
+    bbox:
+      - 2339
+      - 120
+      - 24
+      - 26
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_னி_20_39_05"
+    image_id: "image004"
+    bbox:
+      - 2373
+      - 113
+      - 56
+      - 29
+    mask: null
+    labels:
+      - "னி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ன்_20_39_27"
+    image_id: "image004"
+    bbox:
+      - 2434
+      - 108
+      - 47
+      - 34
+    mask: null
+    labels:
+      - "ன்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_௨_20_39_35"
+    image_id: "image004"
+    bbox:
+      - 2577
+      - 114
+      - 72
+      - 36
+    mask: null
+    labels:
+      - "௨"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ம_20_40_17"
+    image_id: "image004"
+    bbox:
+      - 610
+      - 161
+      - 37
+      - 24
+    mask: null
+    labels:
+      - "ம"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ல_20_40_26"
+    image_id: "image004"
+    bbox:
+      - 657
+      - 161
+      - 33
+      - 24
+    mask: null
+    labels:
+      - "ல"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ர்_20_40_32"
+    image_id: "image004"
+    bbox:
+      - 700
+      - 156
+      - 29
+      - 31
+    mask: null
+    labels:
+      - "ர்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_மி_20_40_40"
+    image_id: "image004"
+    bbox:
+      - 743
+      - 156
+      - 50
+      - 42
+    mask: null
+    labels:
+      - "மி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ச_20_40_47"
+    image_id: "image004"
+    bbox:
+      - 1012
+      - 157
+      - 32
+      - 28
+    mask: null
+    labels:
+      - "ச"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ே_20_41_06"
+    image_id: "image004"
+    bbox:
+      - 1050
+      - 151
+      - 41
+      - 34
+    mask: null
+    labels:
+      - "ே"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ய_20_41_16"
+    image_id: "image004"
+    bbox:
+      - 1093
+      - 159
+      - 44
+      - 20
+    mask: null
+    labels:
+      - "ய"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_கி_20_42_05"
+    image_id: "image004"
+    bbox:
+      - 1146
+      - 147
+      - 36
+      - 39
+    mask: null
+    labels:
+      - "கி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_னா_20_42_13"
+    image_id: "image004"
+    bbox:
+      - 1184
+      - 156
+      - 42
+      - 41
+    mask: null
+    labels:
+      - "னா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ன்_20_42_34"
+    image_id: "image004"
+    bbox:
+      - 1232
+      - 159
+      - 44
+      - 26
+    mask: null
+    labels:
+      - "ன்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ம_20_42_43"
+    image_id: "image004"
+    bbox:
+      - 1299
+      - 163
+      - 41
+      - 22
+    mask: null
+    labels:
+      - "ம"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_43_25"
+    image_id: "image004"
+    bbox:
+      - 1347
+      - 163
+      - 23
+      - 26
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ண_20_43_33"
+    image_id: "image004"
+    bbox:
+      - 1374
+      - 163
+      - 60
+      - 28
+    mask: null
+    labels:
+      - "ண"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_டி_20_43_44"
+    image_id: "image004"
+    bbox:
+      - 1443
+      - 161
+      - 68
+      - 29
+    mask: null
+    labels:
+      - "டி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ே_20_43_55"
+    image_id: "image004"
+    bbox:
+      - 1519
+      - 157
+      - 42
+      - 35
+    mask: null
+    labels:
+      - "ே"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ச_20_44_12"
+    image_id: "image004"
+    bbox:
+      - 1567
+      - 165
+      - 32
+      - 28
+    mask: null
+    labels:
+      - "ச"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ர்_20_44_22"
+    image_id: "image004"
+    bbox:
+      - 1604
+      - 161
+      - 30
+      - 36
+    mask: null
+    labels:
+      - "ர்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ந்_20_44_38"
+    image_id: "image004"
+    bbox:
+      - 1643
+      - 159
+      - 39
+      - 36
+    mask: null
+    labels:
+      - "ந்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_த_20_45_02"
+    image_id: "image004"
+    bbox:
+      - 1690
+      - 161
+      - 28
+      - 42
+    mask: null
+    labels:
+      - "த"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_45_13"
+    image_id: "image004"
+    bbox:
+      - 1717
+      - 168
+      - 27
+      - 22
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ர்_20_45_19"
+    image_id: "image004"
+    bbox:
+      - 1757
+      - 162
+      - 22
+      - 32
+    mask: null
+    labels:
+      - "ர்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_நி_20_45_28"
+    image_id: "image004"
+    bbox:
+      - 1809
+      - 156
+      - 47
+      - 38
+    mask: null
+    labels:
+      - "நி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ல_20_45_44"
+    image_id: "image004"
+    bbox:
+      - 1857
+      - 166
+      - 36
+      - 29
+    mask: null
+    labels:
+      - "ல"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_மி_20_45_51"
+    image_id: "image004"
+    bbox:
+      - 1902
+      - 166
+      - 50
+      - 29
+    mask: null
+    labels:
+      - "மி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ை_20_46_02"
+    image_id: "image004"
+    bbox:
+      - 1960
+      - 166
+      - 44
+      - 30
+    mask: null
+    labels:
+      - "ை"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ச_20_46_28"
+    image_id: "image004"
+    bbox:
+      - 2005
+      - 167
+      - 33
+      - 29
+    mask: null
+    labels:
+      - "ச"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_நீ_20_46_41"
+    image_id: "image004"
+    bbox:
+      - 2039
+      - 156
+      - 42
+      - 42
+    mask: null
+    labels:
+      - "நீ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_டு_20_46_52"
+    image_id: "image004"
+    bbox:
+      - 2234
+      - 162
+      - 50
+      - 37
+    mask: null
+    labels:
+      - "டு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_வ_20_47_15"
+    image_id: "image004"
+    bbox:
+      - 2293
+      - 167
+      - 32
+      - 20
+    mask: null
+    labels:
+      - "வ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_47_20"
+    image_id: "image004"
+    bbox:
+      - 2335
+      - 169
+      - 27
+      - 22
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ழ்_20_47_25"
+    image_id: "image004"
+    bbox:
+      - 2368
+      - 161
+      - 35
+      - 47
+    mask: null
+    labels:
+      - "ழ்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_வ_20_47_41"
+    image_id: "image004"
+    bbox:
+      - 2415
+      - 168
+      - 39
+      - 22
+    mask: null
+    labels:
+      - "வ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_47_47"
+    image_id: "image004"
+    bbox:
+      - 2463
+      - 172
+      - 27
+      - 25
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ர்_20_48_00"
+    image_id: "image004"
+    bbox:
+      - 2501
+      - 159
+      - 29
+      - 41
+    mask: null
+    labels:
+      - "ர்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_௩_20_48_07"
+    image_id: "image004"
+    bbox:
+      - 2580
+      - 166
+      - 55
+      - 34
+    mask: null
+    labels:
+      - "௩"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_௪_20_48_15"
+    image_id: "image004"
+    bbox:
+      - 2728
+      - 217
+      - 42
+      - 30
+    mask: null
+    labels:
+      - "௪"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_௫_20_48_23"
+    image_id: "image004"
+    bbox:
+      - 2709
+      - 257
+      - 65
+      - 45
+    mask: null
+    labels:
+      - "௫"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ல_20_48_38"
+    image_id: "image004"
+    bbox:
+      - 2638
+      - 219
+      - 43
+      - 24
+    mask: null
+    labels:
+      - "ல"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_யி_20_48_46"
+    image_id: "image004"
+    bbox:
+      - 2582
+      - 214
+      - 53
+      - 29
+    mask: null
+    labels:
+      - "யி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ப_20_49_08"
+    image_id: "image004"
+    bbox:
+      - 2541
+      - 220
+      - 36
+      - 20
+    mask: null
+    labels:
+      - "ப"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ை_20_49_14"
+    image_id: "image004"
+    bbox:
+      - 2483
+      - 219
+      - 55
+      - 26
+    mask: null
+    labels:
+      - "ை"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ம்_20_49_25"
+    image_id: "image004"
+    bbox:
+      - 2441
+      - 215
+      - 41
+      - 29
+    mask: null
+    labels:
+      - "ம்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_டு_20_49_34"
+    image_id: "image004"
+    bbox:
+      - 2392
+      - 217
+      - 49
+      - 32
+    mask: null
+    labels:
+      - "டு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_மி_20_49_48"
+    image_id: "image004"
+    bbox:
+      - 2341
+      - 217
+      - 47
+      - 28
+    mask: null
+    labels:
+      - "மி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_டு_20_49_54"
+    image_id: "image004"
+    bbox:
+      - 2284
+      - 214
+      - 49
+      - 43
+    mask: null
+    labels:
+      - "டு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ண_20_50_03"
+    image_id: "image004"
+    bbox:
+      - 2210
+      - 223
+      - 69
+      - 29
+    mask: null
+    labels:
+      - "ண"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_50_15"
+    image_id: "image004"
+    bbox:
+      - 2095
+      - 224
+      - 30
+      - 28
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ய_20_50_21"
+    image_id: "image004"
+    bbox:
+      - 2053
+      - 224
+      - 41
+      - 19
+    mask: null
+    labels:
+      - "ய"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_கி_20_50_45"
+    image_id: "image004"
+    bbox:
+      - 2011
+      - 209
+      - 41
+      - 41
+    mask: null
+    labels:
+      - "கி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_க_20_50_52"
+    image_id: "image004"
+    bbox:
+      - 1953
+      - 219
+      - 31
+      - 29
+    mask: null
+    labels:
+      - "க"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ர்_20_51_00"
+    image_id: "image004"
+    bbox:
+      - 1927
+      - 214
+      - 25
+      - 31
+    mask: null
+    labels:
+      - "ர்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_51_13"
+    image_id: "image004"
+    bbox:
+      - 1884
+      - 217
+      - 35
+      - 28
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_த_20_51_21"
+    image_id: "image004"
+    bbox:
+      - 1851
+      - 217
+      - 27
+      - 35
+    mask: null
+    labels:
+      - "த"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ந்_20_51_26"
+    image_id: "image004"
+    bbox:
+      - 1804
+      - 205
+      - 41
+      - 42
+    mask: null
+    labels:
+      - "ந்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ர்_20_51_31"
+    image_id: "image004"
+    bbox:
+      - 1770
+      - 208
+      - 27
+      - 35
+    mask: null
+    labels:
+      - "ர்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ச_20_51_59"
+    image_id: "image004"
+    bbox:
+      - 1735
+      - 210
+      - 29
+      - 30
+    mask: null
+    labels:
+      - "ச"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ே_20_52_05"
+    image_id: "image004"
+    bbox:
+      - 1690
+      - 207
+      - 45
+      - 35
+    mask: null
+    labels:
+      - "ே"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_டி_20_52_11"
+    image_id: "image004"
+    bbox:
+      - 1627
+      - 214
+      - 56
+      - 29
+    mask: null
+    labels:
+      - "டி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ன_20_52_20"
+    image_id: "image004"
+    bbox:
+      - 1571
+      - 213
+      - 49
+      - 32
+    mask: null
+    labels:
+      - "ன"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_52_29"
+    image_id: "image004"
+    bbox:
+      - 1540
+      - 214
+      - 27
+      - 20
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ல_20_52_35"
+    image_id: "image004"
+    bbox:
+      - 1493
+      - 213
+      - 43
+      - 23
+    mask: null
+    labels:
+      - "ல"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_யி_20_52_55"
+    image_id: "image004"
+    bbox:
+      - 1435
+      - 209
+      - 57
+      - 29
+    mask: null
+    labels:
+      - "யி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ம_20_52_59"
+    image_id: "image004"
+    bbox:
+      - 1364
+      - 211
+      - 42
+      - 26
+    mask: null
+    labels:
+      - "ம"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ை_20_53_05"
+    image_id: "image004"
+    bbox:
+      - 1313
+      - 209
+      - 50
+      - 25
+    mask: null
+    labels:
+      - "ை"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_20_53_11"
+    image_id: "image004"
+    bbox:
+      - 1278
+      - 208
+      - 27
+      - 28
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ட_20_53_18"
+    image_id: "image004"
+    bbox:
+      - 1214
+      - 204
+      - 59
+      - 24
+    mask: null
+    labels:
+      - "ட"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ண்_20_53_48"
+    image_id: "image004"
+    bbox:
+      - 1145
+      - 195
+      - 67
+      - 40
+    mask: null
+    labels:
+      - "ண்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_வ_20_54_00"
+    image_id: "image004"
+    bbox:
+      - 1097
+      - 207
+      - 39
+      - 22
+    mask: null
+    labels:
+      - "வ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ே_20_54_10"
+    image_id: "image004"
+    bbox:
+      - 1050
+      - 197
+      - 47
+      - 36
+    mask: null
+    labels:
+      - "ே"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ல்_20_54_31"
+    image_id: "image004"
+    bbox:
+      - 1002
+      - 199
+      - 39
+      - 32
+    mask: null
+    labels:
+      - "ல்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_த_20_54_37"
+    image_id: "image004"
+    bbox:
+      - 965
+      - 205
+      - 29
+      - 37
+    mask: null
+    labels:
+      - "த"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_டு_20_54_45"
+    image_id: "image004"
+    bbox:
+      - 766
+      - 205
+      - 49
+      - 37
+    mask: null
+    labels:
+      - "டு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ண்_20_54_52"
+    image_id: "image004"
+    bbox:
+      - 696
+      - 205
+      - 63
+      - 38
+    mask: null
+    labels:
+      - "ண்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_வ_20_55_01"
+    image_id: "image004"
+    bbox:
+      - 655
+      - 214
+      - 38
+      - 24
+    mask: null
+    labels:
+      - "வ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ே_20_55_08"
+    image_id: "image004"
+    bbox:
+      - 598
+      - 205
+      - 50
+      - 36
+    mask: null
+    labels:
+      - "ே"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_இ_20_55_15"
+    image_id: "image004"
+    bbox:
+      - 604
+      - 253
+      - 60
+      - 48
+    mask: null
+    labels:
+      - "இ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ரு_20_55_33"
+    image_id: "image004"
+    bbox:
+      - 665
+      - 252
+      - 44
+      - 44
+    mask: null
+    labels:
+      - "ரு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ள்_20_55_58"
+    image_id: "image004"
+    bbox:
+      - 717
+      - 253
+      - 49
+      - 37
+    mask: null
+    labels:
+      - "ள்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ே_20_56_13"
+    image_id: "image004"
+    bbox:
+      - 778
+      - 257
+      - 44
+      - 38
+    mask: null
+    labels:
+      - "ே"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ச_20_56_18"
+    image_id: "image004"
+    bbox:
+      - 824
+      - 262
+      - 31
+      - 31
+    mask: null
+    labels:
+      - "ச"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ரி_20_56_27"
+    image_id: "image004"
+    bbox:
+      - 865
+      - 251
+      - 37
+      - 36
+    mask: null
+    labels:
+      - "ரி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ரு_20_56_39"
+    image_id: "image004"
+    bbox:
+      - 905
+      - 246
+      - 45
+      - 54
+    mask: null
+    labels:
+      - "ரு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_வி_20_56_57"
+    image_id: "image004"
+    bbox:
+      - 964
+      - 256
+      - 50
+      - 29
+    mask: null
+    labels:
+      - "வி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_வ_20_57_15"
+    image_id: "image004"
+    bbox:
+      - 1023
+      - 259
+      - 33
+      - 22
+    mask: null
+    labels:
+      - "வ"
+    variant:
+      elongated: true
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ன_20_57_31"
+    image_id: "image004"
+    bbox:
+      - 1057
+      - 258
+      - 48
+      - 25
+    mask: null
+    labels:
+      - "ன"
+    variant:
+      elongated: true
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_யு_20_57_45"
+    image_id: "image004"
+    bbox:
+      - 1110
+      - 252
+      - 48
+      - 36
+    mask: null
+    labels:
+      - "யு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ஞ்_20_57_52"
+    image_id: "image004"
+    bbox:
+      - 1166
+      - 242
+      - 53
+      - 50
+    mask: null
+    labels:
+      - "ஞ்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ே_20_58_26"
+    image_id: "image004"
+    bbox:
+      - 1230
+      - 247
+      - 45
+      - 35
+    mask: null
+    labels:
+      - "ே"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ச_20_58_44"
+    image_id: "image004"
+    bbox:
+      - 1277
+      - 253
+      - 33
+      - 31
+    mask: null
+    labels:
+      - "ச"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ர_20_58_54"
+    image_id: "image004"
+    bbox:
+      - 1316
+      - 258
+      - 32
+      - 24
+    mask: null
+    labels:
+      - "ர"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_21_00_24"
+    image_id: "image004"
+    bbox:
+      - 1362
+      - 257
+      - 25
+      - 36
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_வி_21_00_38"
+    image_id: "image004"
+    bbox:
+      - 1391
+      - 256
+      - 51
+      - 30
+    mask: null
+    labels:
+      - "வி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ை_21_00_51"
+    image_id: "image004"
+    bbox:
+      - 1452
+      - 257
+      - 42
+      - 24
+    mask: null
+    labels:
+      - "ை"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ற_21_01_09"
+    image_id: "image004"
+    bbox:
+      - 1499
+      - 258
+      - 38
+      - 47
+    mask: null
+    labels:
+      - "ற"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_வ_21_01_18"
+    image_id: "image004"
+    bbox:
+      - 1543
+      - 257
+      - 44
+      - 26
+    mask: null
+    labels:
+      - "வ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ன்_21_01_29"
+    image_id: "image004"
+    bbox:
+      - 1593
+      - 252
+      - 53
+      - 38
+    mask: null
+    labels:
+      - "ன்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ெ_21_01_40"
+    image_id: "image004"
+    bbox:
+      - 1676
+      - 256
+      - 44
+      - 34
+    mask: null
+    labels:
+      - "ெ"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ப_21_01_50"
+    image_id: "image004"
+    bbox:
+      - 1720
+      - 257
+      - 35
+      - 24
+    mask: null
+    labels:
+      - "ப"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_21_01_56"
+    image_id: "image004"
+    bbox:
+      - 1762
+      - 258
+      - 27
+      - 28
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ரு_21_02_02"
+    image_id: "image004"
+    bbox:
+      - 1797
+      - 259
+      - 43
+      - 37
+    mask: null
+    labels:
+      - "ரு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ள்_21_04_20"
+    image_id: "image004"
+    bbox:
+      - 1846
+      - 252
+      - 49
+      - 37
+    mask: null
+    labels:
+      - "ள்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ே_21_04_31"
+    image_id: "image004"
+    bbox:
+      - 1898
+      - 256
+      - 45
+      - 39
+    mask: null
+    labels:
+      - "ே"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ச_21_04_37"
+    image_id: "image004"
+    bbox:
+      - 1952
+      - 264
+      - 30
+      - 25
+    mask: null
+    labels:
+      - "ச"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ர்_21_04_45"
+    image_id: "image004"
+    bbox:
+      - 1988
+      - 259
+      - 32
+      - 36
+    mask: null
+    labels:
+      - "ர்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_பு_21_04_53"
+    image_id: "image004"
+    bbox:
+      - 2035
+      - 263
+      - 41
+      - 38
+    mask: null
+    labels:
+      - "பு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_க_21_06_16"
+    image_id: "image004"
+    bbox:
+      - 2078
+      - 263
+      - 27
+      - 31
+    mask: null
+    labels:
+      - "க"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ழ்_21_06_25"
+    image_id: "image004"
+    bbox:
+      - 2122
+      - 257
+      - 33
+      - 47
+    mask: null
+    labels:
+      - "ழ்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_பு_21_06_30"
+    image_id: "image004"
+    bbox:
+      - 2168
+      - 263
+      - 33
+      - 38
+    mask: null
+    labels:
+      - "பு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ரி_21_06_40"
+    image_id: "image004"
+    bbox:
+      - 2211
+      - 257
+      - 39
+      - 39
+    mask: null
+    labels:
+      - "ரி"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ந்_21_06_49"
+    image_id: "image004"
+    bbox:
+      - 2261
+      - 260
+      - 32
+      - 36
+    mask: null
+    labels:
+      - "ந்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_த_21_06_59"
+    image_id: "image004"
+    bbox:
+      - 2304
+      - 264
+      - 27
+      - 39
+    mask: null
+    labels:
+      - "த"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_21_07_08"
+    image_id: "image004"
+    bbox:
+      - 2345
+      - 264
+      - 29
+      - 26
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ர்_21_07_12"
+    image_id: "image004"
+    bbox:
+      - 2385
+      - 258
+      - 29
+      - 34
+    mask: null
+    labels:
+      - "ர்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ம_21_07_19"
+    image_id: "image004"
+    bbox:
+      - 2422
+      - 263
+      - 41
+      - 28
+    mask: null
+    labels:
+      - "ம"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ா_21_07_27"
+    image_id: "image004"
+    bbox:
+      - 2471
+      - 263
+      - 27
+      - 26
+    mask: null
+    labels:
+      - "ா"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_ட்_21_07_32"
+    image_id: "image004"
+    bbox:
+      - 2508
+      - 262
+      - 50
+      - 24
+    mask: null
+    labels:
+      - "ட்"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_டு_21_07_43"
+    image_id: "image004"
+    bbox:
+      - 2570
+      - 257
+      - 45
+      - 34
+    mask: null
+    labels:
+      - "டு"
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_unlabeled_21_07_49"
+    image_id: "image004"
+    bbox:
+      - 2627
+      - 271
+      - 57
+      - 10
+    mask: null
+    labels:
+[]
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_unlabeled_21_08_26"
+    image_id: "image004"
+    bbox:
+      - 2494
+      - 122
+      - 78
+      - 12
+    mask: null
+    labels:
+[]
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_unlabeled_21_08_33"
+    image_id: "image004"
+    bbox:
+      - 2536
+      - 174
+      - 22
+      - 11
+    mask: null
+    labels:
+[]
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_unlabeled_21_08_41"
+    image_id: "image004"
+    bbox:
+      - 2778
+      - 226
+      - 22
+      - 12
+    mask: null
+    labels:
+[]
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1
+  -
+    glyph_id: "g_unlabeled_21_08_50"
+    image_id: "image004"
+    bbox:
+      - 2687
+      - 227
+      - 16
+      - 10
+    mask: null
+    labels:
+[]
+    variant:
+      elongated: false
+      broken: false
+      striked_out: "none"
+    confidence: 1

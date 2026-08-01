@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Palm Leaf OCR – Character Recognition</title>
+  <meta name="description" content="Upload a palm leaf manuscript image and get digital text output using CNN character recognition." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:       #0d1117;
+      --surface:  #161b22;
+      --surface2: #1c2333;
+      --border:   #30363d;
+      --accent:   #c9a227;
+      --accent2:  #e6bb45;
+      --text:     #e6edf3;
+      --muted:    #8b949e;
+      --success:  #3fb950;
+      --error:    #f85149;
+      --radius:   12px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 18px 40px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background-color: var(--surface);
+    }
+    header .logo {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    header h1 { font-size: 1.2rem; font-weight: 600; }
+    header p  { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── Main layout ── */
+    main {
+      flex: 1;
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 28px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    /* ── Card ── */
+    .card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .card-header {
+      padding: 13px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .card-body { padding: 20px; }
+
+    /* ── Upload zone ── */
+    #drop-zone {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 36px 20px;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+    }
+    #drop-zone:hover       { border-color: var(--accent); }
+    #drop-zone.drag-over   { border-color: var(--accent); background-color: rgba(201,162,39,0.06); }
+
+    /* The file input is a transparent overlay that covers the whole drop-zone.
+       The user clicks it directly — no JS .click() call is needed or used. */
+    #file-input {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+      font-size: 0;
+    }
+    .drop-content { pointer-events: none; }
+    .upload-icon  { font-size: 2.4rem; margin-bottom: 10px; }
+    .drop-hint    { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+    .drop-hint strong { color: var(--accent); }
+    .drop-sub     { font-size: 0.76rem; color: #6d7681; margin-top: 5px; }
+
+    /* ── Uploaded image preview (shown right after file selected) ── */
+    #img-preview-wrap {
+      display: none;
+      margin-top: 18px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: var(--surface2);
+      text-align: center;
+    }
+    #img-preview-wrap.show { display: block; }
+    #img-preview-label {
+      padding: 8px 14px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    #img-preview {
+      max-width: 100%;
+      max-height: 340px;
+      display: block;
+      margin: 0 auto;
+      padding: 12px;
+      object-fit: contain;
+    }
+
+    /* ── Run button ── */
+    #run-btn {
+      margin-top: 18px;
+      padding: 12px 34px;
+      background-color: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.2s ease;
+    }
+    #run-btn:hover   { background-color: var(--accent2); }
+    #run-btn:active  { opacity: 0.9; }
+    #run-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+    .spinner {
+      display: none;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(0,0,0,0.3);
+      border-top-color: #000;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    #run-btn.loading .spinner { display: block; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Status bar ── */
+    #status-bar {
+      display: none;
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.86rem;
+      font-weight: 500;
+    }
+    #status-bar.info    { display: block; background-color: rgba(201,162,39,0.12); color: var(--accent2); }
+    #status-bar.success { display: block; background-color: rgba(63,185,80,0.12);  color: var(--success); }
+    #status-bar.error   { display: block; background-color: rgba(248,81,73,0.12);  color: var(--error); }
+
+    /* ── Output section ── */
+    #output-section { display: none; }
+    #output-section.show { display: flex; flex-direction: column; gap: 22px; }
+
+    /* Segmentation visualisations */
+    .vis-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .vis-thumb {
+      flex: 1;
+      min-width: 200px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: var(--surface2);
+    }
+    .vis-thumb .vis-label {
+      padding: 6px 10px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .vis-thumb img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: contain;
+      display: block;
+      padding: 8px;
+    }
+
+    /* Text output */
+    .output-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .badges { display: flex; gap: 7px; flex-wrap: wrap; align-items: center; }
+    .badge {
+      font-size: 0.75rem;
+      padding: 3px 11px;
+      border-radius: 20px;
+      background-color: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 500;
+    }
+    .badge.gold {
+      background-color: rgba(201,162,39,0.1);
+      border-color: var(--accent);
+      color: var(--accent2);
+      font-weight: 600;
+    }
+    .badge.green {
+      background-color: rgba(63,185,80,0.1);
+      border-color: var(--success);
+      color: var(--success);
+      font-weight: 600;
+    }
+
+    #copy-btn {
+      padding: 8px 18px;
+      background-color: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      border-radius: 8px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    #copy-btn:hover  { background-color: var(--accent); color: #000; }
+    #copy-btn.copied { background-color: var(--success); border-color: var(--success); color: #000; }
+
+    #recognized-text {
+      width: 100%;
+      min-height: 160px;
+      background-color: #0a0d13;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 1.15rem;
+      color: #fff;
+      line-height: 2.1;
+      letter-spacing: 0.07em;
+      resize: vertical;
+      outline: none;
+    }
+    #recognized-text:focus { border-color: var(--accent); }
+
+    /* Line table */
+    .line-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+    .line-table th {
+      text-align: left;
+      padding: 9px 14px;
+      background-color: var(--surface2);
+      color: var(--muted);
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+    }
+    .line-table td {
+      padding: 9px 14px;
+      border-bottom: 1px solid var(--border);
+      font-family: "JetBrains Mono", monospace;
+    }
+    .line-table tr:last-child td { border-bottom: none; }
+    .line-table tr:hover td { background-color: var(--surface2); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 16px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🌿</div>
+  <div>
+    <h1>Palm Leaf OCR</h1>
+    <p>Ancient Manuscript Character Recognition</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── Step 1: Upload ── -->
+  <div class="card">
+    <div class="card-header">📄 Step 1 — Select Palm Leaf Image</div>
+    <div class="card-body">
+
+      <div id="drop-zone">
+        <!-- Transparent overlay: user physically clicks this input — no JS .click() -->
+        <input type="file" id="file-input" accept="image/*" />
+        <div class="drop-content">
+          <div class="upload-icon">🖼️</div>
+          <p class="drop-hint"><strong>Click here to choose a file</strong> or drag &amp; drop</p>
+          <p class="drop-sub">Supports all image formats — PNG, JPG, JPEG, BMP, TIFF, WebP, and more</p>
+        </div>
+      </div>
+
+      <!-- Uploaded image preview shown immediately after file selection -->
+      <div id="img-preview-wrap">
+        <div id="img-preview-label">📷 Selected Image — verify before running</div>
+        <img id="img-preview" src="" alt="Selected palm leaf image" />
+      </div>
+
+      <button id="run-btn">
+        <span class="spinner"></span>
+        <span id="btn-text">⚡ Run Recognition</span>
+      </button>
+
+      <div id="status-bar"></div>
+    </div>
+  </div>
+
+  <!-- ── Step 2: Output (hidden until recognition done) ── -->
+  <div id="output-section">
+
+    <!-- Segmentation Visualisations -->
+    <div class="card">
+      <div class="card-header">🔬 Segmentation Visualisation</div>
+      <div class="card-body">
+        <div class="vis-row">
+          <div class="vis-thumb">
+            <div class="vis-label">Line Detection</div>
+            <img id="vis-line" src="" alt="Line segmentation" />
+          </div>
+          <div class="vis-thumb">
+            <div class="vis-label">Character Boxes</div>
+            <img id="vis-char" src="" alt="Character bounding boxes" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recognised Text -->
+    <div class="card">
+      <div class="card-header">📝 Step 2 — Recognised Text Output</div>
+      <div class="card-body">
+        <div class="output-controls">
+          <div class="badges">
+            <span class="badge" id="badge-lines">0 lines</span>
+            <span class="badge" id="badge-chars">0 chars</span>
+            <span class="badge gold" id="badge-cnn">CNN Model Accuracy: 89.19%</span>
+            <span class="badge green" id="badge-seg">Doc Segmentation: --%</span>
+          </div>
+          <button id="copy-btn">📋 Copy Text</button>
+        </div>
+        <textarea id="recognized-text" readonly spellcheck="false"
+                  placeholder="Recognised characters will appear here in reading order..."></textarea>
+      </div>
+    </div>
+
+    <!-- Line breakdown -->
+    <div class="card" id="lines-card" style="display:none;">
+      <div class="card-header">📊 Line-by-Line Breakdown</div>
+      <div class="card-body" style="padding:0; overflow:hidden;">
+        <table class="line-table">
+          <thead>
+            <tr><th>Line</th><th>Chars</th><th>Recognised Content</th></tr>
+          </thead>
+          <tbody id="line-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div><!-- /#output-section -->
+
+</main>
+
+<footer>
+  Palm Leaf OCR &middot; CNN Model Dataset Accuracy: 89.19% &middot; Exact Spatial (x,y) Reading Order Preserved
+</footer>
+
+<script>
+  const fileInput   = document.getElementById("file-input");
+  const dropZone    = document.getElementById("drop-zone");
+  const previewWrap = document.getElementById("img-preview-wrap");
+  const previewImg  = document.getElementById("img-preview");
+  const runBtn      = document.getElementById("run-btn");
+  const statusBar   = document.getElementById("status-bar");
+  const outputSec   = document.getElementById("output-section");
+  const textArea    = document.getElementById("recognized-text");
+  const copyBtn     = document.getElementById("copy-btn");
+
+  let selectedFile = null;
+
+  // ── Drag-and-drop (the file input overlay handles normal clicks) ──
+  dropZone.addEventListener("dragover", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    dropZone.classList.add("drag-over");
+  });
+  dropZone.addEventListener("dragleave", function() {
+    dropZone.classList.remove("drag-over");
+  });
+  dropZone.addEventListener("drop", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    dropZone.classList.remove("drag-over");
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      handleFile(e.dataTransfer.files[0]);
+    }
+  });
+
+  // ── File selected via native dialog ──
+  fileInput.addEventListener("change", function() {
+    if (fileInput.files && fileInput.files[0]) {
+      handleFile(fileInput.files[0]);
+    }
+  });
+
+  function handleFile(file) {
+    selectedFile = file;
+
+    // Read and show preview so user can verify the image before running
+    var reader = new FileReader();
+    reader.onload = function(ev) {
+      previewImg.src = ev.target.result;
+      previewWrap.classList.add("show");
+    };
+    reader.readAsDataURL(file);
+
+    // Show status
+    setStatus("info", "✔ Image loaded: " + file.name + " — verify the preview above, then click Run Recognition.");
+
+    // Hide previous output
+    outputSec.classList.remove("show");
+    document.getElementById("lines-card").style.display = "none";
+  }
+
+  // ── Run Recognition ──
+  runBtn.addEventListener("click", function() {
+    if (!selectedFile) {
+      setStatus("error", "❌ Please select an image first by clicking the upload box above.");
+      return;
+    }
+
+    runBtn.classList.add("loading");
+    runBtn.disabled = true;
+    setStatus("info", "⏳ Processing… segmenting lines, extracting characters, and running CNN prediction. This may take a few seconds.");
+    outputSec.classList.remove("show");
+    document.getElementById("lines-card").style.display = "none";
+
+    var fd = new FormData();
+    fd.append("image", selectedFile);
+
+    fetch("/api/process", { method: "POST", body: fd })
+      .then(function(resp) { return resp.json(); })
+      .then(function(data) {
+        runBtn.classList.remove("loading");
+        runBtn.disabled = false;
+
+        if (data.error) {
+          setStatus("error", "❌ Error: " + data.error);
+          return;
+        }
+
+        // Show segmentation visualisations
+        document.getElementById("vis-line").src = "data:image/png;base64," + data.line_vis;
+        document.getElementById("vis-char").src = "data:image/png;base64," + data.char_vis;
+
+        // Fill recognised text
+        textArea.value = data.text;
+
+        // Badges
+        var nLines = data.lines ? data.lines.length : 0;
+        var nChars = data.char_list ? data.char_list.length : 0;
+        document.getElementById("badge-lines").textContent = nLines + (nLines === 1 ? " line" : " lines");
+        document.getElementById("badge-chars").textContent = nChars + " chars";
+
+        // Accuracy badges
+        if (data.accuracy) {
+          var seg = data.accuracy.score || 0;
+          var segBadge = document.getElementById("badge-seg");
+          segBadge.textContent = "Doc Segmentation: " + seg.toFixed(1) + "%";
+          if      (seg >= 80) { segBadge.style.color = "#3fb950"; segBadge.style.borderColor = "#3fb950"; }
+          else if (seg >= 55) { segBadge.style.color = "#d29922"; segBadge.style.borderColor = "#d29922"; }
+          else                { segBadge.style.color = "#f85149"; segBadge.style.borderColor = "#f85149"; }
+        }
+
+        // Line table
+        if (data.lines && data.lines.length > 0) {
+          var tbody = document.getElementById("line-table-body");
+          tbody.innerHTML = "";
+          data.lines.forEach(function(ln) {
+            var tr = document.createElement("tr");
+            tr.innerHTML = "<td>Line " + ln.line + "</td><td>" + ln.char_count + "</td><td>" + escHtml(ln.text) + "</td>";
+            tbody.appendChild(tr);
+          });
+          document.getElementById("lines-card").style.display = "block";
+        }
+
+        // Show output section
+        outputSec.classList.add("show");
+        setStatus("success", "✅ Recognition complete! The text below is in correct reading order. Click 'Copy Text' to use it.");
+      })
+      .catch(function(err) {
+        runBtn.classList.remove("loading");
+        runBtn.disabled = false;
+        setStatus("error", "❌ Network error: " + err.message);
+      });
+  });
+
+  // ── Copy button ──
+  copyBtn.addEventListener("click", function() {
+    var text = textArea.value;
+    if (!text) return;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).catch(function() { fallbackCopy(); });
+    } else {
+      fallbackCopy();
+    }
+    copyBtn.classList.add("copied");
+    copyBtn.textContent = "✔ Copied!";
+    setTimeout(function() {
+      copyBtn.classList.remove("copied");
+      copyBtn.textContent = "📋 Copy Text";
+    }, 2500);
+  });
+
+  function fallbackCopy() {
+    textArea.removeAttribute("readonly");
+    textArea.select();
+    document.execCommand("copy");
+    textArea.setAttribute("readonly", "");
+  }
+
+  function setStatus(type, msg) {
+    statusBar.className = type;
+    statusBar.textContent = msg;
+  }
+
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+</script>
+
+</body>
+</html>
