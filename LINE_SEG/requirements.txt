@@ -1,0 +1,6 @@
+# Python Version: 3.11.9
+# External Libraries for LINE_SEG Project
+
+numpy
+opencv-python
+scipy

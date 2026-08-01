@@ -1,0 +1,8 @@
+.venv/
+.vscode/
+__pycache__/
+# output/
+test_output/
+test_merged_output/
+test_contour_final/
+*.pyc
