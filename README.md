@@ -39,69 +39,91 @@ Palm leaf manuscripts are ancient books written on dried palm leaves. They conta
 
 Think of it like this — imagine you are teaching someone to read a page:
 
-```
-Step 1: Clean the image         →  Remove dirt, shadows, noise from the photo
-Step 2: Find the lines          →  Draw lines between each row of text
+```text
+Step 1: Clean the image         →  Remove dirt, shadows, and noise from the photo
+Step 2: Find the lines          →  Draw curved separator lines between each row of text
 Step 3: Find each character     →  Draw a box around each individual letter/symbol
-Step 4: Recognize the character →  AI model looks at each box and guesses what it is
-Step 5: Combine everything      →  Join all recognized characters into full text
+Step 4: Recognize the character →  AI model looks at each box and predicts the character
+Step 5: Combine everything      →  Join all recognized characters into the final text
 ```
 
-Here is the full flow as a diagram:
+### 🔄 Overall System Workflow
 
-```
-[Palm Leaf Photo]
-       |
-  [Image Cleaning]  <-- Remove noise, sharpen, convert to black & white
-       |
-  [Line Detection]  <-- Find where each row of text starts and ends
-       |
-[Character Cutting] <-- Isolate every individual character
-       |
- [AI Recognition]   <-- CNN model identifies each character
-       |
-  [Final Text]      <-- Characters joined in reading order (left to right, top to bottom)
+Here is the complete end-to-end data and execution flow of the application:
+
+```mermaid
+graph TD
+    %% Styling
+    classDef client fill:#e1f5fe,stroke:#0288d1,stroke-width:2px;
+    classDef server fill:#e8f5e9,stroke:#388e3c,stroke-width:2px;
+    classDef seg fill:#fff3e0,stroke:#f57c00,stroke-width:2px;
+    classDef cnn fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
+
+    %% Nodes
+    A[User / Web Browser] -->|Uploads Image| B[Flask Server <br> app.py]
+    B -->|Calls run_ocr| C[OCR Pipeline <br> ocr_pipeline.py]
+    
+    subgraph Segmentation Module [LINE_SEG / Segmentation]
+        C -->|1. Preprocess & Clean| D[line_seg.py <br> preprocess]
+        D -->|2. Detect Line Separators| E[line_seg.py <br> dp_trace]
+        E -->|3. Segment Line Strips| F[char_seg.py <br> get_initial_blocks]
+        F -->|4. Isolate & Merge BBoxes| G[char_seg.py <br> adaptive_split_and_save]
+    end
+    
+    subgraph Character Recognition [yaml annotation / CNN Model]
+        C -->|5. Two-Stage Split Check| H[ocr_pipeline.py <br> Joint character splitting]
+        H -->|6. Resize & Normalize| I[preprocess.py <br> preprocess_pipeline]
+        I -->|7. Load CNN Model| J[predict.py <br> load_trained_model]
+        J -->|8. Character Prediction| K[cnn_model.h5 <br> CNN Prediction]
+    end
+    
+    K -->|Recognized Characters & Confidence| L[Assemble & Sort Text]
+    L -->|Reading Order: Top-to-Bottom, Left-to-Right| C
+    C -->|JSON Output & Visualizations| B
+    B -->|Displays Results & Segmented Images| A
+
+    class A client;
+    class B server;
+    class D,E,F,G seg;
+    class H,I,J,K cnn;
 ```
 
 ---
 
 ## 📁 Project Structure — Every File Explained
 
+```text
+Palm-Leaf-Project/
+├── app.py                      # Flask web application entry point
+├── ocr_pipeline.py             # End-to-end pipeline linking segmentation and CNN
+├── README.md                   # Project documentation
+│
+├── templates/
+│   └── index.html              # Web interface frontend template
+│
+├── LINE_SEG/                   # Line and Character Segmentation Module
+│   ├── line_seg.py             # Preprocessing & dynamic programming line-path tracing
+│   ├── char_seg.py             # Character segmentation and contour box merging
+│   ├── test_verify.py          # Script for verifying segmented outputs
+│   ├── requirements.txt        # Python packages required for the LINE_SEG module
+│   ├── README.md               # Study guide & documentation for LINE_SEG
+│   ├── sample/                 # Directory containing test images
+│   ├── output/                 # Folder where intermediate visual results are saved
+│   └── models/                 # Saved segmentation-related models
+│
+└── yaml annotation/            # CNN Character Recognition Module
+    ├── cnn_model.py            # CNN architecture definition
+    ├── cnn_model.h5            # Pre-trained CNN model (~26 MB)
+    ├── train.py                # Script to load datasets and train the CNN model
+    ├── predict.py              # CLI and API for character prediction
+    ├── preprocess.py           # Preprocessing pipeline for input characters
+    ├── dataset_loader.py       # Helper script to load images and labels
+    ├── classes.npy             # NumPy file containing unique character classes
+    ├── README.md               # Technical documentation for the CNN baseline
+    ├── requirements.txt        # Python packages required for training/inference
+    └── dataset/                # Folder containing character training images
 ```
-Palm leaf project/
-|
-|-- app.py                  <-- The web server (start this to use the browser interface)
-|-- ocr_pipeline.py         <-- The main brain — connects all steps together
-|-- README.md               <-- This file
-|
-|-- templates/
-|   |-- index.html          <-- The web page you see in your browser
-|
-|-- LINE_SEG/               <-- The module that handles line & character detection
-|   |-- line_seg.py         <-- Detects and separates lines of text
-|   |-- char_seg.py         <-- Cuts each line into individual characters
-|   |-- requirements.txt    <-- Python libraries needed for LINE_SEG
-|   |-- input-6.jpeg        <-- Sample palm leaf test image
-|   |-- input-7.jpeg        <-- Sample palm leaf test image
-|   |-- output/             <-- Saved output images from segmentation
-|   |-- sample/             <-- Sample input images for testing
-|   |-- models/             <-- Saved model files (if any)
-|   |-- test_verify.py      <-- Script to verify the segmentation output
-|
-|-- yaml annotation/        <-- The AI model training module
-    |-- cnn_model.py        <-- Defines the AI model architecture
-    |-- cnn_model.h5        <-- The pre-trained AI model file (ready to use)
-    |-- train.py            <-- Script used to train the model (already done)
-    |-- predict.py          <-- Loads model and predicts a character
-    |-- preprocess.py       <-- Prepares an image before giving it to the AI
-    |-- dataset_loader.py   <-- Loads training data during model training
-    |-- classes.npy         <-- List of all characters the model can recognize
-    |-- dataset/            <-- Training images of individual characters
-    |-- accuracy_curve.png  <-- Graph showing model accuracy during training
-    |-- loss_curve.png      <-- Graph showing model error during training
-    |-- confusion_matrix.png<-- Chart showing which characters get confused
-    |-- requirements.txt    <-- Python libraries needed for AI training
-```
+
 
 ---
 
