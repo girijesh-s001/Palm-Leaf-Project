@@ -1,0 +1,21 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# IDE configs
+.vscode/
+.idea/
+
+# Runtime outputs & temporary caches
+output/
+LINE_SEG/output/
+LINE_SEG/_tmp_chars/
+*.tmp
+*.log

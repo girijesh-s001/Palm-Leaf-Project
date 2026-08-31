@@ -1,7 +1,8 @@
 .venv/
 .vscode/
 __pycache__/
-# output/
+output/
+_tmp_chars/
 test_output/
 test_merged_output/
 test_contour_final/

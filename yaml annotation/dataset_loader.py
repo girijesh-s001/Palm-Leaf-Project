@@ -9,47 +9,33 @@ from preprocess import preprocess_pipeline
 
 
 def load_fixed_yaml(filepath: str) -> dict:
-    """Loads YAML annotations while handling potential formatting issues like unindented empty lists."""
+    """Reads a YAML file, fixing unindented empty label lists if present."""
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
-    # Fix unindented empty list after labels:
-    content_fixed = re.sub(r'(\n\s*labels:\s*)\n\[\]', r'\1 []', content)
-    return yaml.safe_load(content_fixed)
+    fixed = re.sub(r'(\n\s*labels:\s*)\n\[\]', r'\1 []', content)
+    return yaml.safe_load(fixed)
 
 
-def load_dataset(
-    dataset_dir: str = 'dataset',
-    test_size: float = 0.2,
-    random_state: int = 42
-):
-    """Loads images and YAML annotations from dataset_dir, crops character bounding boxes,
-
-    preprocesses glyphs, encodes labels, and performs train-test split.
-
-    Returns:
-        X_train, X_test, y_train, y_test, label_encoder
-    """
+def load_dataset(dataset_dir: str = 'dataset', test_size: float = 0.2, random_state: int = 42):
+    """Loads images and YAML annotations, crops characters, and returns train/test splits."""
     images_dir = os.path.join(dataset_dir, 'images')
     annotations_dir = os.path.join(dataset_dir, 'annotations')
 
-    X = []
-    y = []
-
-    ann_files = sorted([f for f in os.listdir(annotations_dir) if f.endswith('.yaml')])
+    X, y = [], []
+    ann_files = sorted(f for f in os.listdir(annotations_dir) if f.endswith('.yaml'))
 
     for ann_file in ann_files:
         base_name = os.path.splitext(ann_file)[0]
         yaml_path = os.path.join(annotations_dir, ann_file)
 
-        # Look for corresponding image file (.jpg, .jpeg, .png)
         img_path = None
-        for ext in ['.jpg', '.jpeg', '.png', '.JPG', '.PNG']:
-            possible = os.path.join(images_dir, base_name + ext)
-            if os.path.exists(possible):
-                img_path = possible
+        for ext in ('.jpg', '.jpeg', '.png', '.JPG', '.PNG'):
+            candidate = os.path.join(images_dir, base_name + ext)
+            if os.path.exists(candidate):
+                img_path = candidate
                 break
 
-        if img_path is None:
+        if not img_path:
             continue
 
         image = cv2.imread(img_path)
@@ -63,12 +49,10 @@ def load_dataset(
             labels = ann.get('labels')
             bbox = ann.get('bbox')
 
-            if not labels or len(labels) == 0:
-                continue
-            if not bbox or len(bbox) < 4:
+            if not labels or not bbox or len(bbox) < 4:
                 continue
 
-            x, y_pos, w, h = [int(v) for v in bbox[:4]]
+            x, y_pos, w, h = (int(v) for v in bbox[:4])
             if w <= 0 or h <= 0:
                 continue
 
@@ -87,30 +71,23 @@ def load_dataset(
     X = np.array(X, dtype=np.float32)
     y = np.array(y)
 
-    print(f"Total dataset samples: {len(X)}")
-
-    # Encode target labels
     label_encoder = LabelEncoder()
     y_encoded = label_encoder.fit_transform(y)
-    num_classes = len(label_encoder.classes_)
-    print(f"Total unique character classes: {num_classes}")
 
-    # Check class distribution for stratification safety
     unique_classes, counts = np.unique(y_encoded, return_counts=True)
     can_stratify = np.all(counts >= 2)
-
-    stratify_arg = y_encoded if can_stratify else None
 
     X_train, X_test, y_train, y_test = train_test_split(
         X,
         y_encoded,
         test_size=test_size,
         random_state=random_state,
-        stratify=stratify_arg,
+        stratify=y_encoded if can_stratify else None,
         shuffle=True
     )
 
-    print(f"Training samples: {len(X_train)} ({(1-test_size)*100:.0f}%)")
-    print(f"Testing samples: {len(X_test)} ({test_size*100:.0f}%)")
+    print(f"Loaded {len(X)} samples across {len(label_encoder.classes_)} classes.")
+    print(f"Train: {len(X_train)} | Test: {len(X_test)}")
 
     return X_train, X_test, y_train, y_test, label_encoder
+

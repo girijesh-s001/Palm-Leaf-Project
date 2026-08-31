@@ -1,422 +1,223 @@
 # 🌿 Palm Leaf OCR — Ancient Manuscript Character Recognition
 
-> **What this project does in one sentence:**  
-> Upload a photo of an ancient palm leaf manuscript → the system automatically reads it and converts the handwritten characters into digital text.
+> **Summary:** An end-to-end OCR pipeline and web interface to transcribe ancient Tamil handwritten palm-leaf manuscripts into digital text using computer vision preprocessing, dynamic programming line segmentation, and a convolutional neural network (CNN).
 
 ---
 
 ## 📖 Table of Contents
 
-1. [What is this project?](#-what-is-this-project)
-2. [How does it work? (Simple Explanation)](#-how-does-it-work-simple-explanation)
-3. [Project Structure — Every File Explained](#-project-structure--every-file-explained)
-4. [How to Install and Run](#-how-to-install-and-run)
-5. [How to Use the Web Interface](#-how-to-use-the-web-interface)
-6. [Understanding the Output](#-understanding-the-output)
-7. [Technical Pipeline (For Developers)](#-technical-pipeline-for-developers)
-8. [Model Accuracy](#-model-accuracy)
-9. [Requirements](#-requirements)
+1. [Project Overview](#-project-overview)
+2. [Architecture & Workflow](#-architecture--workflow)
+3. [Project Structure](#-project-structure)
+4. [Installation & Setup](#-installation--setup)
+5. [Running the Application](#-running-the-application)
+6. [Model Evaluation & Benchmarking](#-model-evaluation--benchmarking)
+7. [Technical Pipeline Details](#-technical-pipeline-details)
+8. [Dataset & Model Performance](#-dataset--model-performance)
 
 ---
 
-## 🌴 What is this project?
+## 🌴 Project Overview
 
-Palm leaf manuscripts are ancient books written on dried palm leaves. They contain important historical, religious, and literary texts — but they are difficult to read digitally because:
-- They are **handwritten** (not typed)
-- The writing style is very different from modern fonts
-- There is no automatic tool to read them
+Palm-leaf manuscripts are historical artifacts containing classical literature, scientific records, and historical treatises. Digitizing them presents unique challenges:
+- Handwritten, highly curved Indic scripts (Tamil)
+- Varying line spacing, curved baselines, and ascender/descender interferences
+- Touching/merged characters and aged physical media degradation
 
-**This project solves that problem** by building an AI system that:
-1. Takes a **photograph** of a palm leaf manuscript
-2. Automatically finds each **line of text**
-3. Cuts out each individual **character**
-4. Uses a **trained AI model (CNN)** to recognize what each character is
-5. Outputs the **full text** in correct reading order
+This project provides:
+1. **Adaptive Image Preprocessing:** Denoising, boundary/connected-component noise filtering, and Otsu thresholding.
+2. **Seam-Carving Line Segmentation:** Dynamic programming path tracing (`dp_trace`) that navigates inter-line valleys without cutting through characters.
+3. **Character Segmentation & Joint Resolution:** Bounding-box projection profiling, 2D overlap merging, and two-stage histogram-based split resolution for touching glyphs.
+4. **CNN Recognition Engine:** Fast, normalized character-level inference preserving exact reading order (top-to-bottom, left-to-right).
+5. **Interactive Web Dashboard:** Upload, preview, segment, transcribe, and export text directly in the browser.
 
 ---
 
-## 🔍 How does it work? (Simple Explanation)
-
-Think of it like this — imagine you are teaching someone to read a page:
-
-```text
-Step 1: Clean the image         →  Remove dirt, shadows, and noise from the photo
-Step 2: Find the lines          →  Draw curved separator lines between each row of text
-Step 3: Find each character     →  Draw a box around each individual letter/symbol
-Step 4: Recognize the character →  AI model looks at each box and predicts the character
-Step 5: Combine everything      →  Join all recognized characters into the final text
-```
-
-### 🔄 Overall System Workflow
-
-Here is the complete end-to-end data and execution flow of the application:
+## 🔄 Architecture & Workflow
 
 ```mermaid
 graph TD
-    %% Styling
-    classDef client fill:#e1f5fe,stroke:#0288d1,stroke-width:2px;
-    classDef server fill:#e8f5e9,stroke:#388e3c,stroke-width:2px;
-    classDef seg fill:#fff3e0,stroke:#f57c00,stroke-width:2px;
-    classDef cnn fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
-
-    %% Nodes
-    A[User / Web Browser] -->|Uploads Image| B[Flask Server <br> app.py]
-    B -->|Calls run_ocr| C[OCR Pipeline <br> ocr_pipeline.py]
+    A[User / Web Dashboard] -->|Upload Image| B[Flask Server: app.py]
+    B -->|run_ocr| C[Pipeline Coordinator: ocr_pipeline.py]
     
-    subgraph Segmentation Module [LINE_SEG / Segmentation]
-        C -->|1. Preprocess & Clean| D[line_seg.py <br> preprocess]
-        D -->|2. Detect Line Separators| E[line_seg.py <br> dp_trace]
-        E -->|3. Segment Line Strips| F[char_seg.py <br> get_initial_blocks]
-        F -->|4. Isolate & Merge BBoxes| G[char_seg.py <br> adaptive_split_and_save]
+    subgraph Preprocessing & Line Segmentation
+        C -->|1. Preprocess & Clean| D[LINE_SEG/line_seg.py: preprocess]
+        D -->|2. Detect Valleys & Seam Carve| E[LINE_SEG/line_seg.py: dp_trace]
+        E -->|3. Extract Line Strips| F[LINE_SEG/char_seg.py: get_initial_blocks]
+        F -->|4. Refine Bounding Boxes| G[LINE_SEG/char_seg.py: adaptive_split_and_save]
     end
     
-    subgraph Character Recognition [yaml annotation / CNN Model]
-        C -->|5. Two-Stage Split Check| H[ocr_pipeline.py <br> Joint character splitting]
-        H -->|6. Resize & Normalize| I[preprocess.py <br> preprocess_pipeline]
-        I -->|7. Load CNN Model| J[predict.py <br> load_trained_model]
-        J -->|8. Character Prediction| K[cnn_model.h5 <br> CNN Prediction]
+    subgraph Joint Resolution & Recognition
+        C -->|5. Two-Stage Split Validation| H[ocr_pipeline.py: Joint character splitting]
+        H -->|6. Normalize 64x64 Tensor| I[yaml annotation/preprocess.py]
+        I -->|7. Model Inference| J[yaml annotation/predict.py: load_trained_model]
+        J -->|8. Character Predictions| K[yaml annotation/cnn_model.h5]
     end
     
-    K -->|Recognized Characters & Confidence| L[Assemble & Sort Text]
-    L -->|Reading Order: Top-to-Bottom, Left-to-Right| C
-    C -->|JSON Output & Visualizations| B
-    B -->|Displays Results & Segmented Images| A
-
-    class A client;
-    class B server;
-    class D,E,F,G seg;
-    class H,I,J,K cnn;
+    K -->|Labels & Confidence| L[Assemble Text in Reading Order]
+    L --> C
+    C -->|Results, Visualizations, Accuracy Metrics| B
+    B -->|Render Results & Line Table| A
 ```
 
 ---
 
-## 📁 Project Structure — Every File Explained
+## 📁 Project Structure
 
-```text
+```
 Palm-Leaf-Project/
-├── app.py                      # Flask web application entry point
-├── ocr_pipeline.py             # End-to-end pipeline linking segmentation and CNN
-├── README.md                   # Project documentation
-│
+├── app.py                         # Flask web server and API endpoints
+├── ocr_pipeline.py                # End-to-end OCR coordinator
+├── ocr_model_comparison.py        # Benchmark script comparing 6 OCR architectures
+├── OCR_MODEL_COMPARISON_README.md # Model benchmark report and analysis
+├── README.md                      # Primary project documentation
+├── requirements.txt               # Top-level dependencies
 ├── templates/
-│   └── index.html              # Web interface frontend template
+│   └── index.html                 # Web dashboard UI
+├── output/                        # Output folder for exports and benchmark results
 │
-├── LINE_SEG/                   # Line and Character Segmentation Module
-│   ├── line_seg.py             # Preprocessing & dynamic programming line-path tracing
-│   ├── char_seg.py             # Character segmentation and contour box merging
-│   ├── test_verify.py          # Script for verifying segmented outputs
-│   ├── requirements.txt        # Python packages required for the LINE_SEG module
-│   ├── README.md               # Study guide & documentation for LINE_SEG
-│   ├── sample/                 # Directory containing test images
-│   ├── output/                 # Folder where intermediate visual results are saved
-│   └── models/                 # Saved segmentation-related models
+├── LINE_SEG/                      # Line and Character Segmentation Module
+│   ├── line_seg.py                # Preprocessing, valley detection & DP seam tracing
+│   ├── char_seg.py                # Projection profiling, overlap merging & character extraction
+│   ├── README.md                  # Detailed segmentation study guide
+│   └── requirements.txt           # Segmentation dependencies
 │
-└── yaml annotation/            # CNN Character Recognition Module
-    ├── cnn_model.py            # CNN architecture definition
-    ├── cnn_model.h5            # Pre-trained CNN model (~26 MB)
-    ├── train.py                # Script to load datasets and train the CNN model
-    ├── predict.py              # CLI and API for character prediction
-    ├── preprocess.py           # Preprocessing pipeline for input characters
-    ├── dataset_loader.py       # Helper script to load images and labels
-    ├── classes.npy             # NumPy file containing unique character classes
-    ├── README.md               # Technical documentation for the CNN baseline
-    ├── requirements.txt        # Python packages required for training/inference
-    └── dataset/                # Folder containing character training images
+└── yaml annotation/               # CNN Character Recognition Module
+    ├── cnn_model.py               # CNN architecture definition
+    ├── dataset_loader.py          # Annotation parser and train/test splitter
+    ├── preprocess.py              # Character crop preprocessing pipeline
+    ├── train.py                   # Model training and metric visualizer
+    ├── predict.py                 # Single-character CLI prediction tool
+    ├── classes.npy                # Target character class labels
+    ├── cnn_model.h5               # Pre-trained CNN model weights
+    ├── README.md                  # Character recognition technical guide
+    ├── requirements.txt           # Training and inference dependencies
+    ├── dataset/                   # Dataset images and YAML bounding-box annotations
+    ├── palm leaf annotated img/   # Source annotated palm-leaf manuscript images
+    └── results/                   # Accuracy/loss curves and classification metrics
 ```
 
-
 ---
 
-### Detailed File Descriptions
+## ⚙️ Installation & Setup
 
-#### `app.py` — Web Server
-This is the **entry point** for the web application. When you run `python app.py`, it starts a local web server at `http://localhost:5000`. It:
-- Serves the web page (`index.html`) to your browser
-- Receives an uploaded image from the browser
-- Calls `ocr_pipeline.py` to process it
-- Sends the results (text, images, accuracy) back to the browser
+### Requirements
+- **Python 3.10+** (Python 3.11 recommended)
 
-#### `ocr_pipeline.py` — The Main Pipeline
-This is the **central coordinator** that connects all the pieces. When given an image, it:
-1. Loads and cleans the image
-2. Calls `line_seg.py` functions to find lines
-3. Calls `char_seg.py` to find individual characters
-4. Runs each character through the CNN model for recognition
-5. Sorts everything in reading order (top to bottom, left to right)
-6. Returns the complete recognized text and visual results
-
-#### `templates/index.html` — The Web Interface
-The **user-facing web page** built with HTML, CSS, and JavaScript. It provides:
-- A drag-and-drop image upload box
-- A preview of the selected image before processing
-- A "Run Recognition" button
-- Visual output showing detected lines and character boxes
-- A text area showing the recognized characters
-- A line-by-line breakdown table
-- Accuracy badges (segmentation score and CNN model accuracy)
-
----
-
-### `LINE_SEG/` Folder — Image Segmentation Module
-
-#### `line_seg.py` — Line Segmentation
-This file is responsible for **splitting the palm leaf image into individual rows of text**. It contains these main functions:
-
-| Function | What it does |
-|----------|-------------|
-| `preprocess()` | Cleans the image — sharpens it, removes background noise, converts to binary (black and white) |
-| `estimate_height()` | Measures the average height of characters to calibrate the line detection |
-| `detect_separators()` | Finds the empty horizontal gaps between lines of text |
-| `dp_trace()` | Draws a smooth curved path (separator line) between two rows of text, avoiding cutting through characters |
-| `process_image()` | Runs the full pipeline on a single image when used as a standalone script |
-
-#### `char_seg.py` — Character Segmentation
-This file **splits each line of text into individual characters**. It contains:
-
-| Function | What it does |
-|----------|-------------|
-| `get_initial_blocks()` | Scans each line from left to right using a column-by-column projection to find where characters start and end |
-| `merge_overlapping_boxes()` | If two character boxes accidentally overlap, it merges them into one |
-| `adaptive_split_and_save()` | The main function — processes each block, uses contour detection to separate touching characters, flags merged characters (two characters stuck together), and returns measurements for all characters |
-
-#### `test_verify.py` — Verification Script
-A small script to check if the segmentation output is correct by examining saved character images.
-
----
-
-### `yaml annotation/` Folder — AI Model Module
-
-#### `cnn_model.py` — Model Architecture
-Defines the **Convolutional Neural Network (CNN)** structure — the layers, filters, and connections that make up the AI brain. Think of it like a blueprint for a building.
-
-#### `cnn_model.h5` — Trained Model File
-This is the **actual trained AI model** saved to disk. It contains everything the model learned during training. The pipeline loads this file to make predictions. (~26 MB)
-
-#### `train.py` — Training Script
-Used **once** to teach the model from the dataset. You do NOT need to run this again unless you want to retrain with new data.
-
-#### `predict.py` — Prediction Module
-Contains the `load_trained_model()` function that loads `cnn_model.h5` and provides a `predict()` function. The pipeline calls this for every character crop.
-
-#### `preprocess.py` — Image Preprocessing for CNN
-Before feeding a character image to the CNN, this script resizes it to **64x64 pixels**, converts it to grayscale, normalizes pixel values, and optionally inverts colors. This ensures every character is in a consistent format that the model expects.
-
-#### `dataset_loader.py` — Training Data Loader
-Reads character images from the `dataset/` folder and organizes them into training and testing sets. Used only during training.
-
-#### `classes.npy` — Character Labels
-A NumPy file containing the list of all character classes the model was trained to recognize. When the model outputs a prediction number (e.g., `42`), this file is used to look up the actual character name.
-
-#### `accuracy_curve.png` — Training Accuracy Graph
-A chart showing how the model's accuracy improved over each training epoch (cycle). Useful to see if training was successful.
-
-#### `loss_curve.png` — Training Loss Graph
-A chart showing how the model's error decreased during training. Lower is better.
-
-#### `confusion_matrix.png` — Character Confusion Chart
-A grid showing which characters the model sometimes confuses with each other.
-
----
-
-## ⚙️ How to Install and Run
-
-### Step 1 — Install Python
-Make sure you have **Python 3.11** or higher installed.  
-Download from: https://www.python.org/downloads/
-
-### Step 2 — Install Required Libraries
-
-Open a terminal/command prompt in the project folder and run:
+### Setup Virtual Environment
 
 ```bash
-pip install flask opencv-python numpy scipy tensorflow
+# Clone the repository
+git clone https://github.com/girijesh-s001/Palm-Leaf-Project.git
+cd Palm-Leaf-Project
+
+# Create and activate virtual environment
+python -m venv .venv
+
+# Windows:
+.venv\Scripts\activate
+
+# Linux/macOS:
+source .venv/bin/activate
+
+# Install dependencies
+pip install flask opencv-python numpy scipy tensorflow scikit-learn matplotlib seaborn pyyaml pillow
 ```
 
-Or install from the requirements files:
+---
 
-```bash
-pip install -r "yaml annotation/requirements.txt"
-pip install -r LINE_SEG/requirements.txt
-pip install flask
-```
+## 🚀 Running the Application
 
-### Step 3 — Start the Web Server
+### 1. Web Dashboard
 
 ```bash
 python app.py
 ```
+Open your browser at **`http://localhost:5000`** to access the upload interface, view line/character segmentations, and copy recognized text.
 
-You will see:
+### 2. Standalone Pipeline (CLI)
 
-```
-=======================================================
- Palm Leaf OCR - Web Interface
- Open your browser at: http://localhost:5000
-=======================================================
-```
-
-### Step 4 — Open the Browser
-
-Go to: **http://localhost:5000**
-
----
-
-## 🖥️ How to Use the Web Interface
-
-1. **Click the upload box** (or drag and drop an image onto it)
-2. **Select a palm leaf image** (PNG, JPG, JPEG supported)
-3. **Verify the preview** — make sure the correct image loaded
-4. **Click "⚡ Run Recognition"**
-5. **Wait a few seconds** — the system is:
-   - Cleaning the image
-   - Detecting lines
-   - Cutting characters
-   - Running the AI model on each character
-6. **View the results:**
-   - Line detection image (red lines drawn between rows)
-   - Character boxes image (boxes drawn around each character)
-   - Recognized text in the text area
-   - Line-by-line breakdown table
-
----
-
-## 📊 Understanding the Output
-
-### Visual Outputs
-
-| Output | What you see | What it means |
-|--------|-------------|---------------|
-| **Line Detection** | Original image with red curved lines | The system drew separator lines between each row of text |
-| **Character Boxes** | White image with colored rectangles | Blue boxes = normal characters; Red boxes = merged or split characters |
-
-### Text Output
-The recognized characters are displayed in the text area in **exact reading order**: top line first, then second line, and within each line, left to right. You can click **"📋 Copy Text"** to copy it.
-
-### Accuracy Badges
-
-| Badge | Meaning |
-|-------|---------|
-| **X lines** | How many rows of text were detected |
-| **X chars** | Total number of individual characters recognized |
-| **CNN Model Accuracy: 89.19%** | The AI model is correct 89.19% of the time on its training/testing dataset |
-| **Doc Segmentation: X%** | How cleanly the characters were separated in this specific image |
-
-**Segmentation Score Color:**
-- 🟢 **Green (80% and above)** — Excellent segmentation, clean image
-- 🟡 **Yellow (55% to 79%)** — Acceptable, some merged characters
-- 🔴 **Red (below 55%)** — Poor segmentation, image may be noisy or blurry
-
----
-
-## 🔧 Technical Pipeline (For Developers)
-
-### End-to-End Flow
-
-```
-run_ocr(image_path)                          [ocr_pipeline.py]
-    |
-    |-- preprocess(img)                       [line_seg.py]
-    |      |-- Sharpen -> Threshold -> Denoise
-    |      |-- Returns: cleaned binary, thresh_inv
-    |
-    |-- estimate_height(cleaned)              [line_seg.py]
-    |      |-- Median height of connected components
-    |
-    |-- detect_separators(cleaned, text_h)    [line_seg.py]
-    |      |-- Horizontal projection -> Gaussian smooth -> Valley detection
-    |
-    |-- dp_trace(reinforced, y)               [line_seg.py] (per separator)
-    |      |-- Dynamic programming path avoiding text pixels
-    |
-    |-- [For each line strip]:
-    |      |-- get_initial_blocks(line_bin)   [char_seg.py]
-    |      |      |-- Vertical projection -> Left-right scan -> Raw blocks
-    |      |-- adaptive_split_and_save(...)   [char_seg.py]
-    |             |-- Contours -> Merge overlaps -> Flag merged chars
-    |
-    |-- Two-Stage Split (joined characters)   [ocr_pipeline.py]
-    |      |-- Stage 1: Flag chars > 1.6x average width/height
-    |      |-- Stage 2: Split at vertical histogram valley in center 30%
-    |
-    |-- Sort by (line_index, x_position)      [Reading order]
-    |
-    |-- _predict_crop(crop, model, classes)   [ocr_pipeline.py] (per char)
-    |      |-- preprocess_pipeline -> 64x64 grayscale normalized tensor
-    |      |-- model.predict() -> argmax -> character label + confidence
-    |
-    |-- Assemble text, accuracy metrics, visualizations
-    |-- Return result dictionary
-```
-
-### Key Design Decisions
-
-- **Dynamic Programming line tracing:** Instead of straight horizontal lines, the separator paths follow the contour of the writing using DP to avoid cutting through characters.
-- **Two-stage character splitting:** A joined/merged character (two touching characters) is detected using aspect ratio + histogram valley analysis, then split at the lowest ink column in the middle 30% of the block.
-- **Per-line statistics:** Average character size is computed per line (not just globally) to handle variation in handwriting size across the manuscript.
-- **Source image for crops:** Character crops are extracted from the raw threshold image (preserving original ink detail), while segmentation logic uses the cleaned binary image.
-
----
-
-## 📈 Model Accuracy
-
-| Metric | Value |
-|--------|-------|
-| CNN Training / Dataset Accuracy | **89.19%** |
-| CNN Test Accuracy | **48.30%** |
-| Model Architecture | Convolutional Neural Network (CNN) |
-| Input Size | 64 x 64 pixels (grayscale) |
-| Model File | `yaml annotation/cnn_model.h5` (~26 MB) |
-
-> **Note:** The gap between dataset accuracy (89%) and test accuracy (48%) indicates the model has learned the training data well, but real-world palm leaf images with variation in style, ink quality, and background are more challenging. This is an active area for improvement.
-
----
-
-## 📦 Requirements
-
-### Python Version
-- **Python 3.11.9** (recommended)
-
-### Libraries
-
-| Library | Purpose |
-|---------|---------|
-| `flask` | Web server framework |
-| `opencv-python` | Image processing (reading, thresholding, contours) |
-| `numpy` | Numerical arrays and matrix operations |
-| `scipy` | Signal processing (Gaussian smoothing, peak detection for line separators) |
-| `tensorflow` | Loading and running the CNN model |
-
-### Install All at Once
+Run end-to-end OCR on an image file directly:
 
 ```bash
-pip install flask opencv-python numpy scipy tensorflow
+python ocr_pipeline.py path/to/manuscript.jpg
 ```
 
----
+### 3. Standalone Segmentation Visualizer
 
-## 🚀 Quick Start Summary
+Run line and character segmentation with interactive OpenCV visualization windows:
 
 ```bash
-# 1. Clone or download the project
-
-# 2. Install dependencies
-pip install flask opencv-python numpy scipy tensorflow
-
-# 3. Start the server
-python app.py
-
-# 4. Open browser at http://localhost:5000
-
-# 5. Upload a palm leaf image and click Run Recognition
+python LINE_SEG/line_seg.py path/to/manuscript.jpg
 ```
 
 ---
-OUTPUT VISUALIZATION
---------------------
 
-<img width="1147" height="619" alt="image" src="https://github.com/user-attachments/assets/56ea35f0-fc66-4968-b97f-45bc4c5156df" />
-<img width="1132" height="324" alt="image" src="https://github.com/user-attachments/assets/f8eb0abd-f650-47a0-af5d-cd9446d1724f" />
-<img width="1150" height="849" alt="image" src="https://github.com/user-attachments/assets/29d2fd8d-0f2a-420e-8a7d-1918963a56e5" />
+## 🔬 Model Evaluation & Benchmarking
 
+The project includes a comparative benchmark framework evaluating 6 OCR paradigms on the annotated Tamil palm-leaf dataset:
 
-*Built for digitizing and preserving ancient Tamil palm leaf manuscripts using computer vision and deep learning.*
+1. **Palm Leaf CNN (Project Baseline)** — Tailored line/char segmentation + custom CNN
+2. **PARSeq** — Permutation Autoregressive Sequence recognition
+3. **PP-OCRv5** — Multilingual mobile OCR (`ta_PP-OCRv5_mobile_rec`)
+4. **Donut** — Vision-Language Document Transformer
+5. **Pixtral-12B** — Multimodal Vision-Language Model
+6. **DeepSeek-OCR** — DeepSeek multimodal OCR
+
+Run the benchmark:
+
+```bash
+# Benchmark on 5 test images (default)
+python ocr_model_comparison.py --images 5
+
+# Benchmark across all 10 annotated manuscripts
+python ocr_model_comparison.py --images 10
+```
+
+Results are printed in a ranked comparison table and saved to `output/comparison/comparison_summary.csv`. For full analysis, see [OCR_MODEL_COMPARISON_README.md](OCR_MODEL_COMPARISON_README.md).
+
+---
+
+## 🔧 Technical Pipeline Details
+
+1. **Adaptive Preprocessing:**
+   - High-pass Laplacian sharpening kernel to accentuate faint ink strokes.
+   - Local adaptive mean thresholding (window size 21, constant 11).
+   - Dual-stage noise suppression: boundary contour area filtering and connected component filtering.
+
+2. **Seam-Carving Line Tracing (`dp_trace`):**
+   - Gaussian-smoothed 1D horizontal ink projection finds valley coordinates.
+   - Dynamic programming computes an energy-minimizing path from $x = 0$ to $x = W$, heavily penalizing text collisions ($+250$) while biasing towards distance-transform white space and vertical smoothness.
+
+3. **Character Segmentation & Overlap Merging:**
+   - Vertical projection histogram determines character clusters.
+   - 2D bounding boxes are iteratively unioned if horizontal/vertical bounds overlap.
+
+4. **Joint Character Resolution:**
+   - Flags glyphs whose dimensions exceed $1.6\times$ the running average width/height.
+   - Searches the center 30% width region for vertical histogram minima.
+   - Splits verified joints (aspect ratio $> 1.6$, prominent side peaks) into distinct character entries `a` and `b`.
+
+5. **CNN Classification:**
+   - Character crops resized to $64 \times 64 \times 1$ and normalized to $[0.0, 1.0]$.
+   - Sequentially evaluated by 3 Conv2D/MaxPool blocks (32, 64, 128 filters), Dense(256), Dropout(0.5), and Softmax output.
+
+---
+
+## 📈 Dataset & Model Performance
+
+| Metric | Score |
+|---|---|
+| **CNN Training Dataset Accuracy** | **89.19%** |
+| **CNN Test Set Accuracy** | **48.30%** |
+| **Character Image Size** | 64 × 64 pixels (grayscale) |
+| **Total Annotated Classes** | Character classes encoded in `classes.npy` |
+| **Model Weight File** | `yaml annotation/cnn_model.h5` (~26 MB) |
+
+Evaluation plots and classification reports are available under [`yaml annotation/results/`](yaml%20annotation/results/).
+
+---
+
+## 📄 License
+
+Developed for digitizing, preserving, and making ancient historical Tamil palm-leaf manuscripts accessible through computer vision and machine learning.
