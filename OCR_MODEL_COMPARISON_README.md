@@ -1,15 +1,15 @@
-# OCR Model Comparison — Tamil Palm Leaf Manuscripts
+# OCR Model Comparison - Tamil Palm Leaf Manuscripts
 
-> Benchmark and architectural analysis comparing multiple OCR paradigms on the annotated Tamil Palm Leaf Manuscript dataset.
+Benchmark and architectural analysis comparing multiple OCR paradigms on the annotated Tamil Palm Leaf Manuscript dataset.
 
 ---
 
-## 📊 Dataset & Ground Truth
+## Dataset & Ground Truth
 
 | Metric | Detail |
 |---|---|
-| **Images** | `yaml annotation/dataset/images/img001.jpg` … `img010.jpg` |
-| **Annotations** | `yaml annotation/dataset/annotations/img001.yaml` … `img010.yaml` |
+| **Images** | `yaml annotation/dataset/images/img001.jpg` ... `img010.jpg` |
+| **Annotations** | `yaml annotation/dataset/annotations/img001.yaml` ... `img010.yaml` |
 | **Total Manuscripts** | 10 high-resolution palm-leaf photographs |
 | **Total Labeled Glyphs** | ~2,200 handwritten Tamil character annotations |
 | **Annotation Format** | Bounding box `[x, y, w, h]` with Unicode class label `["ன"]` |
@@ -18,16 +18,16 @@ Ground-truth text is assembled in spatial reading order (left-to-right, top-to-b
 
 ---
 
-## 📐 Evaluation Metric
+## Evaluation Metric
 
-* **Character Error Rate (CER):** Normalized Levenshtein edit distance between the predicted text string ($H$) and ground-truth text ($R$):
+* **Character Error Rate (CER):** Normalized Levenshtein edit distance between the predicted text string (H) and ground-truth text (R):
   $$\text{CER} = \frac{\text{EditDistance}(H, R)}{\text{Length}(R)}$$
 * **Character Accuracy:**
   $$\text{Accuracy (\%)} = (1 - \text{CER}) \times 100$$
 
 ---
 
-## 🤖 Evaluated Models
+## Evaluated Models
 
 The benchmark evaluates six OCR paradigms:
 
@@ -40,7 +40,7 @@ The benchmark evaluates six OCR paradigms:
 
 ---
 
-## 📈 Benchmark Summary
+## Benchmark Summary
 
 | Rank | Model | Paradigm | Tamil Support | Cost |
 |:---:|---|---|:---:|:---:|
@@ -53,7 +53,7 @@ The benchmark evaluates six OCR paradigms:
 
 ---
 
-## 🚀 Running the Benchmark
+## Running the Benchmark
 
 ```bash
 # Benchmark on 5 sample images
