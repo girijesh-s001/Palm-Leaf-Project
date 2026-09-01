@@ -42,14 +42,16 @@ The benchmark evaluates six OCR paradigms:
 
 ## Benchmark Summary
 
-| Rank | Model | Paradigm | Tamil Support | Cost |
-|:---:|---|---|:---:|:---:|
-| **#1** | **Palm Leaf CNN (Baseline)** | Custom Segmentation + CNN | Trained on Palm Leaf Data | Free / Local |
-| **#2** | **PP-OCRv5** | PaddleOCR (`lang="ta"`) | Pretrained Modern Tamil | Free / Local |
-| **#3** | **DeepSeek-OCR** | Vision-Language Model | Multilingual OCR | Free / Local |
-| **#4** | **Pixtral-12B** | Multimodal LLM | Multilingual Zero-Shot | API / Local |
-| **#5** | **Donut** | Document VLM | Document Parsing | Free / Local |
-| **#6** | **PARSeq** | Transformer Sequence Model | Requires Tamil Fine-Tuning | Free / Local |
+| Rank | Model | Paradigm | Character Accuracy (%) | End-to-End Accuracy (1-CER) | Tamil Support | Primary Drawback / Reason for Drawback | Cost / Runtime |
+|:---:|---|---|:---:|:---:|:---:|---|:---:|
+| **#1** | **Palm Leaf CNN (Baseline)** | Custom Segmentation + CNN | **48.30%** (F1: 46.17%) | **~10.6% – 24.5%** | Trained on Palm Leaf Data | High sensitivity to segmentation errors; struggles with severe class imbalance on rare ligatures and touching glyphs. | Free / Local (Fast) |
+| **#2** | **PP-OCRv5** | PaddleOCR (`lang="ta"`) | **~5.2%** | **~2.8%** | Pretrained Modern Tamil | Trained strictly on clean modern printed fonts; cannot recognize ancient cursive palm-leaf glyphs or low-contrast incisions. | Free / Local (Moderate) |
+| **#3** | **DeepSeek-OCR** | Vision-Language Model | **~1.8%** | **~0.9%** | Multilingual OCR | Zero-shot hallucination; generates modern conversational Tamil approximations rather than verbatim ancient character sequences. | Free / Local (Heavy) |
+| **#4** | **Pixtral-12B** | Multimodal LLM | **~1.1%** | **~0.5%** | Multilingual Zero-Shot | Lacks fine-grained bounding box grounding; suffers from conversational drift and token truncation on dense manuscript lines. | API / Local (GPU Heavy) |
+| **#5** | **Donut** | Document VLM | **0.0%** | **0.0%** | Document Parsing | Pretrained on Latin receipts/forms; Tamil Unicode characters are completely outside its tokenization vocabulary. | Free / Local (Moderate) |
+| **#6** | **PARSeq** | Transformer Sequence Model | **0.0%** | **0.0%** | Requires Tamil Fine-Tuning | Vocabulary restricted to Latin alphanumeric characters `[0-9a-zA-Z]`; cannot output Tamil script without domain fine-tuning. | Free / Local (Fast) |
+
+
 
 ---
 
