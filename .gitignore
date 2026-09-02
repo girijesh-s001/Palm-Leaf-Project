@@ -14,7 +14,9 @@ ENV/
 .idea/
 
 # Runtime outputs & temporary caches
-output/
+output/*
+!output/comparison/
+!output/comparison/*.csv
 LINE_SEG/output/
 LINE_SEG/_tmp_chars/
 *.tmp
